@@ -12,7 +12,7 @@ class FornecedorMapping : IEntityTypeConfiguration<Fornecedor>
             .IsRequired()
             .HasColumnType("varchar(200)");
         
-        builder.Property(p => p.Documeto)
+        builder.Property(p => p.Documento)
            .IsRequired()
            .HasColumnType("varchar(14)");
 

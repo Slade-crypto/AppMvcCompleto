@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "brNFYVKXwc7gqTOen90mvAOvLXTXlA1Sgbly7vXI8BivZ4tXBMqf91TnO0hds7+a3DqRXyk0vnHg0a6MODU/WQ==",
+  "dgSpecHash": "cZWPYdz7+D7B1aP3hxtiBhREkjVKjyvboZUFp4tz2PXTIAe9lLOLWiqGwk9act6sfTbqnG/BH8iuwcijUlF93g==",
   "success": true,
   "projectFilePath": "C:\\Users\\mathe\\renan\\MinhaAppMvcCompleta\\src\\DevIO.Data\\DevIO.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mathe\\.nuget\\packages\\fluentvalidation\\11.0.3\\fluentvalidation.11.0.3.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

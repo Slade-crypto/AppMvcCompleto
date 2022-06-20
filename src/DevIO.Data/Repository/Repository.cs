@@ -1,5 +1,4 @@
 ﻿using DevIO.Business.Models;
-using DevIO.Business.Interface;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -7,6 +6,7 @@ using System;
 using DevIO.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using DevIO.Business.Interfaces;
 
 namespace DevIO.Data.Repository
 {
@@ -31,7 +31,7 @@ namespace DevIO.Data.Repository
             return await DbSet.FindAsync(id);
         }
 
-        public virtual async Task<List<TEntity>> obterTodos()
+        public virtual async Task<List<TEntity>> ObterTodos()
         {
             return await DbSet.ToListAsync();
         }
@@ -58,7 +58,7 @@ namespace DevIO.Data.Repository
             return await Db.SaveChangesAsync();
         }
 
-        public async void Dispose()
+        public void Dispose()
         {
             Db?.Dispose();
         }

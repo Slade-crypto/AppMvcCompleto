@@ -73,7 +73,7 @@ namespace DevIO.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Documeto")
+                    b.Property<string>("Documento")
                         .IsRequired()
                         .HasColumnType("varchar(14)");
 
