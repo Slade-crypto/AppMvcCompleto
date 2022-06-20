@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DevIO.App.ViewModels;
-using DevIO.Business.Interface;
 using AutoMapper;
 using DevIO.Business.Models;
+using DevIO.Business.Services;
+using DevIO.Business.Interfaces;
 
 namespace DevIO.App.Controllers
 {
     public class FornecedoresController : BaseController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
-        private readonly IEnderecoRepository _enderecoRepository;
+        private readonly IFornecedorService _fornecedorService;
         private readonly IMapper _mapper;
 
         public FornecedoresController(IFornecedorRepository fornecedorRepository,
                                       IMapper mapper,
-                                      IEnderecoRepository enderecoRepository)
+                                      IFornecedorService fornecedorService,
+                                      INotificador notificador) : base(notificador)
         {
             _fornecedorRepository = fornecedorRepository;
             _mapper = mapper;
-            _enderecoRepository = enderecoRepository;
+            _fornecedorService = fornecedorService;
         }
 
         // GET: Fornecedores
@@ -62,7 +64,7 @@ namespace DevIO.App.Controllers
             if (!ModelState.IsValid) return View(fornecedorViewModel);
 
             var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
-            await _fornecedorRepository.Adicionar(fornecedor);
+            await _fornecedorService.Adicionar(fornecedor);
 
             return RedirectToAction("Index");
 
@@ -160,7 +162,7 @@ namespace DevIO.App.Controllers
 
             if (!ModelState.IsValid) return PartialView("_AtualizarEndereco", fornecedorViewModel);
 
-            await _enderecoRepository.Atualizar(_mapper.Map<Endereco>(fornecedorViewModel.Endereco));
+            await _fornecedorService.AtualizarEndereco(_mapper.Map<Endereco>(fornecedorViewModel.Endereco));
 
             var url = Url.Action("ObterEndereco", "Fornecedores", new { id = fornecedorViewModel.Endereco.Id });
             return Json(new { success = true, url });
